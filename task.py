@@ -9,6 +9,7 @@ def sendMail(message):
     sender_address = str(input("Please Enter Sender Email Address: "))
     sender_pass = str(input("Please Enter Sender Password: "))
     receiver_address = str(input("Please Enter Receiver Email Address: "))
+    subject = str(input("Please Enter your subject: "))
     #Setup the MIME
     # sender_address = 'sknitt38@gmail.com'
     # sender_pass = '****'
@@ -18,7 +19,7 @@ def sendMail(message):
     message['From'] = sender_address
     message['To']   = receiver_address
     
-    message['Subject'] = 'A test mail sent by Python. It has an attachment.'   #The subject line
+    message["Subject"] = subject  #The subject line
     #The body and the attachments for the mail
     message.attach(MIMEText(mail_content, 'plain'))
     #Create SMTP session for sending the mail
